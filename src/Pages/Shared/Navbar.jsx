@@ -19,23 +19,23 @@ const Navbar = () => {
   const link = (
     <>
       <li>
-        <a>Home</a>
+        <NavLink to='/'>Home</NavLink>
       </li>
       <li>
-        <a>All Toys</a>
+        <NavLink to='/alltoys'>All Toys</NavLink>
       </li>
       {user && (
         <>
           <li>
-            <a>My Toys</a>
+            <NavLink to='mytoys'>My Toys</NavLink>
           </li>
           <li>
-            <a>Add a Toys</a>
+            <NavLink to='addtoys'>Add a Toys</NavLink>
           </li>
         </>
       )}
       <li>
-        <a>Blogs</a>
+        <NavLink to='/blog'>Blog</NavLink>
       </li>
     </>
   );
@@ -68,7 +68,7 @@ const Navbar = () => {
         </div>
         <div className="btn btn-ghost">
         <img className="w-7 mr-2" src={icon} alt="" />
-        <a className=" normal-case text-xl">BD LEGO</a>
+        <a className=" normal-case text-primary text-xl">BD LEGO</a>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -77,7 +77,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            <div className="dropdown dropdown-end ">
+            <div className="dropdown dropdown-end  m-1">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img
