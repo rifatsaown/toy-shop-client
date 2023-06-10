@@ -18,11 +18,11 @@ const Help = () => {
             </button>
           </div>
 
-          <h2 className="font-bold py-3 text-2xl">
+          <h2 className="font-bold py-3 text-2xl ">
             <span className="text-primary">Download</span> Our Official App
           </h2>
           <div className="flex lg:flex-row md:flex-col">
-            <button className="bg-black inline-flex py-3 px-5 rounded-lg items-center">
+            <button className="bg-base-100 inline-flex py-3 px-5 rounded-lg items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -36,7 +36,7 @@ const Help = () => {
                 <span className="title-font font-medium">Google Play</span>
               </span>
             </button>
-            <button className="bg-black inline-flex py-3 px-5 rounded-lg items-center lg:ml-4 md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0 ">
+            <button className="bg-base-100 inline-flex py-3 px-5 rounded-lg items-center lg:ml-4 md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
