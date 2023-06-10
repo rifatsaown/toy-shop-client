@@ -7,9 +7,9 @@ import Toy from "./Toy";
 const ShowToy = () => {
   const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [toyLoad, setToyLoad] = useState(true);
   const [toys, setToys] = useState([]);
   const [clicked, setClicked] = useState(false);
-  console.log(toys);
 
   useEffect(() => {
     fetch("http://localhost:5000/category")
@@ -18,60 +18,90 @@ const ShowToy = () => {
         setLoading(false);
         setCategory(data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        setLoading(false);
       });
   }, []);
-  
+
   useEffect(() => {
     fetch("http://localhost:5000/alllego")
-        .then((response) => response.json())
-        .then((data) => {
-            setToys(data);
-            
-        })
-        .catch(() => {
-            
-        });
-}, [clicked]);
+      .then((response) => response.json())
+      .then((data) => {
+        setToyLoad(false);
+        setToys(data);
+      })
+      .catch(() => {
+        setToyLoad(false);
+      });
+  }, [clicked]);
 
   const handleLegoLoad = (cat) => {
+    setToyLoad(true);
     fetch(`http://localhost:5000/legos?category=${cat}`)
       .then((response) => response.json())
       .then((data) => {
-        
+        setToyLoad(false);
         setToys(data);
       })
       .catch((err) => {
+        setToyLoad(false);
         console.log(err);
       });
   };
 
   return (
     <div>
+      <h1 className="text-3xl text-primary font-bold text-center my-5">All Toys With Category</h1>
       <Tabs>
         <TabList>
-         
           {loading ? (
             <Loader />
           ) : (
-            // 
+            //
             <>
-            <Tab onClick={()=>setClicked(!clicked)}>All</Tab>
-            {category &&
-            category.map((cat, index) => <Tab onClick={()=>handleLegoLoad(cat)} key={index}>{cat}</Tab>
-            )}
+              <Tab
+                onClick={() => {
+                  setClicked(!clicked);
+                  setToyLoad(true);
+                }}
+              >
+                All
+              </Tab>
+              {category &&
+                category.map((cat, index) => (
+                  <Tab onClick={() => handleLegoLoad(cat)} key={index}>
+                    {cat}
+                  </Tab>
+                ))}
             </>
           )}
         </TabList>
-        <TabPanel >
-            <div className="flex flex-wrap">
-            { toys.map((toy, index) => (<Toy key={index} toy={toy}/>))}
-            </div>
-        </TabPanel>
+        {category && (
+          <TabPanel>
+            {toyLoad ? (
+              <Loader></Loader>
+            ) : (
+              <div className="flex justify-center flex-wrap">
+                {toys.map((toy, index) => (
+                  <Toy key={index} toy={toy} />
+                ))}
+              </div>
+            )}
+          </TabPanel>
+        )}
         {category &&
           category.map((cat, index) => (
-            <TabPanel key={index}>{cat}</TabPanel>
+            <TabPanel key={index}>
+              {toyLoad ? (
+                <Loader></Loader>
+              ) : (
+                <div className="flex justify-center flex-wrap">
+                  {toys.map((toy, index) => (
+                    <Toy key={index} toy={toy} />
+                  ))}
+                </div>
+              )}
+            </TabPanel>
           ))}
       </Tabs>
     </div>

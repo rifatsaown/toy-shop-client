@@ -48,6 +48,7 @@ const Footer = () => {
             </svg>
           </a>
         </div>
+        Made With ❤️ By{" RS "}
       </div>
     </footer>
   );

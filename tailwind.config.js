@@ -14,7 +14,7 @@ export default {
   // full docs here: https://daisyui.com/docs/themes/
   daisyui: {
     themes: [
-      'forest'
+       'forest'
     ],
   },
 }

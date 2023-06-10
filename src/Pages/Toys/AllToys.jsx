@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Loader from "../Shared/Loader";
+import { Link } from "react-router-dom";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -93,12 +94,12 @@ const AllToys = () => {
                       <td>${toy.price}</td>
                       <td>${toy.stock}</td>
                       <td>
-                        <button
-                          onClick={() => window.my_modal_5.showModal()}
+                        <Link
+                          to = {`/toys/${toy._id}`}
                           className="btn btn-primary btn-outline btn-sm"
                         >
                           View Details
-                        </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
@@ -112,19 +113,7 @@ const AllToys = () => {
           </div>
         )}
       </div>
-      {/* modal */}
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-        <form method="dialog" className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
-          <div className="modal-action">
-            {/* if there is a button in form, it will close the modal */}
-            <button className="btn">Close</button>
-          </div>
-        </form>
-      </dialog>
+     
     </div>
   );
 };

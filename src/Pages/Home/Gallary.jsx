@@ -27,14 +27,16 @@ const Gallary = () => {
     },
   ];
   return (
-    <div className="my-10   bg-base-200 py-10 rounded-xl">
+    <>
+     <h1 className="text-3xl text-primary font-bold text-center mt-16 ">Image Gallery</h1>
+    <div className="my-10 bg-base-200 py-10 rounded-xl">
       <ImageGallery 
         showPlayButton={false}
         showFullscreenButton={false}
       slideOnThumbnailOver={true}
 
        items={images} />
-    </div>
+    </div></>
   );
 };
 
