@@ -12,7 +12,7 @@ const ToyEdit = () => {
       stock: e.target.stock.value,
       description: e.target.description.value,
     };
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`https://bd-lego-server.vercel.app/update/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -22,30 +22,29 @@ const ToyEdit = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-            Swal.fire({
-                customClass: {
-                  title: "text-white",
-                },
-                title: "Success!",
-                text: " Toy Edited Successfully!",
-                icon: "success",
-                background: "#171212",
-                confirmButtonColor: "#1eb854",
-                confirmButtonText: "OK",
-              });
-        }
-        else{
-            Swal.fire({
-                customClass: {
-                  title: "text-white",
-                },
-                title: "Failed!",
-                text: " Toy Edit Failed!",
-                icon: "error",
-                background: "#171212",
-                confirmButtonColor: "#1eb854",
-                confirmButtonText: "OK",
-              });
+          Swal.fire({
+            customClass: {
+              title: "text-white",
+            },
+            title: "Success!",
+            text: " Toy Edited Successfully!",
+            icon: "success",
+            background: "#171212",
+            confirmButtonColor: "#1eb854",
+            confirmButtonText: "OK",
+          });
+        } else {
+          Swal.fire({
+            customClass: {
+              title: "text-white",
+            },
+            title: "Failed!",
+            text: " Toy Edit Failed!",
+            icon: "error",
+            background: "#171212",
+            confirmButtonColor: "#1eb854",
+            confirmButtonText: "OK",
+          });
         }
       });
   };
@@ -93,11 +92,7 @@ const ToyEdit = () => {
             />
           </div>
 
-          <button
-            className="btn btn-primary w-full mt-3"
-          >
-            Edit
-          </button>
+          <button className="btn btn-primary w-full mt-3">Edit</button>
         </form>
       </div>
     </>

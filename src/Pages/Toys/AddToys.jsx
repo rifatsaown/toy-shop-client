@@ -14,7 +14,10 @@ const Addtoys = () => {
       toyname: e.target.toyname.value,
       sellerName: user.displayName,
       sellerEmail: user.email,
-      category: e.target.category.value === "-----Select-----" ? "undefined": e.target.category.value ,
+      category:
+        e.target.category.value === "-----Select-----"
+          ? "undefined"
+          : e.target.category.value,
       price: parseFloat(e.target.price.value),
       ratting: parseFloat(e.target.ratting.value),
       stock: parseInt(e.target.stock.value),
@@ -22,7 +25,7 @@ const Addtoys = () => {
     };
 
     // post data to server
-    fetch("http://localhost:5000/addlego", {
+    fetch("https://bd-lego-server.vercel.app/addlego", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(toy),
@@ -65,9 +68,7 @@ const Addtoys = () => {
               name="category"
               required
             >
-              <option >
-                -----Select-----
-              </option>
+              <option>-----Select-----</option>
               <option>Marvel</option>
               <option>Harry Potter</option>
               <option>Batman</option>
@@ -124,7 +125,6 @@ const Addtoys = () => {
           </div>
         </div>
         <div>
-          
           <div className="form-control">
             <label className="label">
               <span className="label-text">Product Description</span>

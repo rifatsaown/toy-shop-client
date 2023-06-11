@@ -7,9 +7,10 @@ const Footer = () => {
         <img className="w-10" src={logo} alt="" />
         <p>
           BD LEGO
-          <br />
-          LEGO Toy Distributor in Bangladesh Since 2021
+          
         </p>
+        <p>LEGO Toy Distributor in Bangladesh Since 2021</p>
+        <p>Dhaka-1230 , Bangladesh</p>
       </div>
       <div>
         <span className="footer-title">Contact Us</span>

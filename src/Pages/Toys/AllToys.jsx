@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import Loader from "../Shared/Loader";
 import { Link } from "react-router-dom";
+import Loader from "../Shared/Loader";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/alllego")
+    fetch("https://bd-lego-server.vercel.app/alllego")
       .then((response) => response.json())
       .then((data) => {
-        setToys(data);
+        // set only 20 toys 
+        setToys(data.slice(0, 20));
         setLoading(false);
       })
       .catch(() => {
@@ -23,7 +24,7 @@ const AllToys = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const search = e.target.name.value;
-    fetch(`http://localhost:5000/lego?toyname=${search}`)
+    fetch(`https://bd-lego-server.vercel.app/lego?toyname=${search}`)
       .then((response) => response.json())
       .then((data) => {
         if (typeof data === "object") {
@@ -95,7 +96,7 @@ const AllToys = () => {
                       <td>${toy.stock}</td>
                       <td>
                         <Link
-                          to = {`/toys/${toy._id}`}
+                          to={`/toys/${toy._id}`}
                           className="btn btn-primary btn-outline btn-sm"
                         >
                           View Details
@@ -113,7 +114,6 @@ const AllToys = () => {
           </div>
         )}
       </div>
-     
     </div>
   );
 };

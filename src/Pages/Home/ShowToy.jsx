@@ -12,7 +12,7 @@ const ShowToy = () => {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/category")
+    fetch("https://bd-lego-server.vercel.app/category")
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
@@ -24,7 +24,7 @@ const ShowToy = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/alllego")
+    fetch("https://bd-lego-server.vercel.app/alllego")
       .then((response) => response.json())
       .then((data) => {
         setToyLoad(false);
@@ -37,7 +37,7 @@ const ShowToy = () => {
 
   const handleLegoLoad = (cat) => {
     setToyLoad(true);
-    fetch(`http://localhost:5000/legos?category=${cat}`)
+    fetch(`https://bd-lego-server.vercel.app/legos?category=${cat}`)
       .then((response) => response.json())
       .then((data) => {
         setToyLoad(false);
@@ -51,7 +51,9 @@ const ShowToy = () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-primary font-bold text-center my-5">All Toys With Category</h1>
+      <h1 className="text-3xl text-primary font-bold text-center my-5">
+        All Toys With Category
+      </h1>
       <Tabs>
         <TabList>
           {loading ? (

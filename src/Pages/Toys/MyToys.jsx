@@ -12,13 +12,22 @@ const MyToys = () => {
 
   // Fetch all toys of a user
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys/?sellerEmail=${user.email}`)
+    fetch(`https://bd-lego-server.vercel.app/mytoys/?sellerEmail=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
         setToys(data);
       });
   }, [user]);
+  // sort toys by price from api call
+  const handleSort = () => {
+    fetch(`http://localhost:5000/sort/?sellerEmail=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false);
+        setToys(data);
+      });
+  };
 
   // Delete a toy
   const handleRemove = (id) => {
@@ -37,7 +46,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://bd-lego-server.vercel.app/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -71,6 +80,11 @@ const MyToys = () => {
           {toys.length > 0 ? (
             <div>
               <h1 className="text-center text-3xl my-4 font-bold">My Toys</h1>
+              <div onClick={handleSort} className="text-right mb-3">
+              <button className="btn btn-primary">
+               Sort By Price
+              </button>
+              </div>
               <div>
                 {toys.map((toy, index) => (
                   <Toy handleRemove={handleRemove} toy={toy} key={index} />
