@@ -3,9 +3,10 @@ import Gallary from "./Gallary";
 import Help from "./Help";
 import Hero from "./Hero";
 import ShowToy from "./ShowToy";
-
+import useTitle from "../../Hooks/useTitle";
 
 const Home = () => {
+    useTitle("Home");
     return (
         <>
             <Hero/>

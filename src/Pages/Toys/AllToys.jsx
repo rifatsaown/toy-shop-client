@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../Shared/Loader";
+import useTitle from "../../Hooks/useTitle";
 
 const AllToys = () => {
+  useTitle("All Toys");
   const [toys, setToys] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {

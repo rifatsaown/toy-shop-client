@@ -4,8 +4,10 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Loader from "../Shared/Loader";
 import Toy from "./Toy";
+import useTitle from "../../Hooks/useTitle";
 
 const MyToys = () => {
+  useTitle("My Toys");
   const [toys, setToys] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
