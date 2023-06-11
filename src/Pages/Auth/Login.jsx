@@ -5,7 +5,6 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const location = useLocation();
-  console.log(location);
   const from = location.state?.from || "/";
   const navigate = useNavigate();
   const { signInWithGoogle, signInWithEmail } = useContext(AuthContext);

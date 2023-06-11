@@ -78,7 +78,7 @@ const Navbar = () => {
         {user ? (
           <>
             <div className="dropdown dropdown-end  m-1">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <label tabIndex={0} data-tip={user.displayName ? user.displayName : "Profile"} className="btn tooltip btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img
                     src={
@@ -92,7 +92,7 @@ const Navbar = () => {
                 className="menu text-white menu-compact dropdown-content mt-3 p-2 bg-primary-focus rounded-box w-52"
               >
                 <li>
-                  <NavLink to="/profile" className="justify-between">
+                  <NavLink className="justify-between">
                     {user.displayName ? user.displayName : "Profile"}
                   </NavLink>
                 </li>

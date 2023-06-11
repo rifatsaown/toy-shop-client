@@ -49,7 +49,9 @@ const Footer = () => {
           </a>
         </div>
         Made With ❤️ By{" RS "}
+        <p>© 2023 BD LEGO Inc.</p>
       </div>
+     
     </footer>
   );
 };
