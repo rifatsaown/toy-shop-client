@@ -21,7 +21,7 @@ const MyToys = () => {
   }, [user]);
   // sort toys by price from api call
   const handleSort = () => {
-    fetch(`http://localhost:5000/sort/?sellerEmail=${user.email}`)
+    fetch(`https://bd-lego-server.vercel.app/sort/?sellerEmail=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

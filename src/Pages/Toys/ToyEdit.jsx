@@ -8,8 +8,8 @@ const ToyEdit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const editedToy = {
-      price: e.target.price.value,
-      stock: e.target.stock.value,
+      price: parseFloat(e.target.price.value),
+      stock: parseInt(e.target.stock.value),
       description: e.target.description.value,
     };
     fetch(`https://bd-lego-server.vercel.app/update/${id}`, {

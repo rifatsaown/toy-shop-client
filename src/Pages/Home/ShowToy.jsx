@@ -50,7 +50,7 @@ const ShowToy = () => {
   };
 
   return (
-    <div>
+    <div data-aos="zoom-out-right">
       <h1 className="text-3xl text-primary font-bold text-center my-5">
         All Toys With Category
       </h1>
