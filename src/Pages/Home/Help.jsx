@@ -2,7 +2,7 @@ import help from "../../assets/help.png";
 
 const Help = () => {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <div className="container bg-base-200 rounded-xl mx-auto flex px-8 py-5 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium ">

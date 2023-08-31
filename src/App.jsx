@@ -5,7 +5,7 @@ import Navbar from "./Pages/Shared/Navbar";
 
 function App() {
   return (
-    <div className="lg:w-[1280px] mx-auto">
+    <div >
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>
